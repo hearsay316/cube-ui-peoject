@@ -1,12 +1,12 @@
 <template>
-  <div class="course">
-    Course急急急
+  <div class="loading">
+    ...合适的温度
   </div>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "Loading"
 };
 </script>
 
