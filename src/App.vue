@@ -28,12 +28,12 @@ export default {
         {
           label: "我的课程",
           value: "/course",
-          icon: "cubeic-like"
+          icon: "cubeic-calendar"
         },
         {
           label: "个人中心",
           value: "/profile",
-          icon: "cubeic-vip"
+          icon: "cubeic-person"
         }
       ]
     };
