@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">首页</router-link>
-      <router-link to="/course">我的课程</router-link>
-      <router-link to="/profile">个人中心</router-link>
+    <div class="app-nav">
+      <router-view />
+    </div>
+    <div class="app-footer">
       <cube-tab-bar
         v-model="selectedLabelDefault"
         :data="tabs"
@@ -12,7 +12,6 @@
       >
       </cube-tab-bar>
     </div>
-    <router-view />
   </div>
 </template>
 <script>
@@ -39,6 +38,10 @@ export default {
       ]
     };
   },
+  /**
+   * 监控路由属性的变化
+   * immediate 首次是否加载
+   * */
   watch: {
     $route: {
       handler(to, from) {
@@ -62,8 +65,20 @@ export default {
 };
 </script>
 <style lang="stylus">
+html, body,#app {
+     width: 100%
+     height: 100%
+ }
 #app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
+    width: 100%
+    height: 100%
+    display flex
+    flex-direction column
+.app-nav
+    flex 1
+    overflow-y scroll
+.app-footer
+    box-sizing border-box
+    background-color #eee
+    border-top 1px solid #000000
 </style>
