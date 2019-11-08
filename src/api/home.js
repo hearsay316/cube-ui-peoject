@@ -1,5 +1,5 @@
-import axja from "@/utils/axjaxRequest.js";
-let axios = new axja();
+import ajax from "@/utils/ajaxRequest.js";
+let axios = new ajax();
 export const fetchCategory = () => {
   return axios.request({
     url: "/Category",
