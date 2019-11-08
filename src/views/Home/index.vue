@@ -6,10 +6,20 @@
 
 <script>
 import HomeHead from "./HomeHead";
-
+import { fetchCategory } from "@/api/home.js";
 export default {
   name: "home",
-  components: { HomeHead }
+  components: { HomeHead },
+  mounted() {
+    fetchCategory().then(
+      res => {
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 };
 </script>
 

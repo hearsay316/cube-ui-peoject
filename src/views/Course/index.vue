@@ -1,6 +1,6 @@
 <template>
   <div class="course">
-    Course急急急
+    Course
   </div>
 </template>
 

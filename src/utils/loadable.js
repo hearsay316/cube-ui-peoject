@@ -1,6 +1,7 @@
 /**
  * 实现loading效果
  * */
+// noinspection NpmUsedModulesInstalled
 import Loading from "@/components/Loading";
 
 const loadable = asyncFunction => {
