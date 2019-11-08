@@ -1,13 +1,42 @@
 <template>
-  <div class="HomeHead">
-    <img class="HomeHead-img" src="@/assets/images/logo.png" alt="图片" />
-    <span class="cubeic-select"></span>
+  <div>
+    <div class="HomeHead">
+      <img class="HomeHead-img" src="@/assets/images/logo.png" alt="图片" />
+      <span class="cubeic-select" @click="HomeHeadShow"></span>
+    </div>
+    <cube-drawer
+      ref="drawer"
+      title="请选择"
+      :data="data"
+      @select="selectHandler"
+      @click="selectHandler"
+    ></cube-drawer>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HomeHead"
+  name: "HomeHead",
+  props: {
+    categories: {
+      type: Array,
+      default: () => {}
+    }
+  },
+  computed: {
+    data() {
+      return [this.categories];
+    }
+  },
+  methods: {
+    selectHandler(value) {
+      console.log(value);
+      this.$emit("change", value);
+    },
+    HomeHeadShow() {
+      this.$refs.drawer.show();
+    }
+  }
 };
 </script>
 

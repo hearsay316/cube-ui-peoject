@@ -1,24 +1,32 @@
 <template>
   <div class="home">
-    <HomeHead></HomeHead>
+    <!--suppress JSUnresolvedVariable -->
+    <HomeHead :categories="categories" @change="homeChange"></HomeHead>
+    {{ categories }}
   </div>
 </template>
 
 <script>
+import * as type from "../../utils/actions-type";
+
 import HomeHead from "./HomeHead";
-import { fetchCategory } from "@/api/home.js";
+import { createNamespacedHelpers } from "vuex";
+let { mapActions, mapState } = createNamespacedHelpers("home");
 export default {
   name: "home",
   components: { HomeHead },
+  computed: {
+    ...mapState(["categories"])
+  },
+  methods: {
+    ...mapActions([type.SET_CATEGORIES]),
+    homeChange(value) {
+      console.log(value);
+    }
+  },
   mounted() {
-    fetchCategory().then(
-      res => {
-        console.log(res);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    // this.$store.dispatch("home/");
+    this[type.SET_CATEGORIES]();
   }
 };
 </script>
